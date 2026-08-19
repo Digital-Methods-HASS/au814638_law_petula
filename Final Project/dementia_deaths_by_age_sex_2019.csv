@@ -1,0 +1,25 @@
+sex,age_group,deaths,rate_per_100000
+Persons,Under 65,269,0.6
+Males,Under 65,123,0.5
+Females,Under 65,146,0.6
+Persons,65-69,625,21.0
+Males,65-69,313,21.7
+Females,65-69,312,20.3
+Persons,70-74,2159,73.0
+Males,70-74,1050,74.1
+Females,70-74,1109,71.9
+Persons,75-79,5443,263.3
+Males,75-79,2563,266.9
+Females,75-79,2880,260.1
+Persons,80-84,11925,779.6
+Males,80-84,5167,765.3
+Females,80-84,6758,790.8
+Persons,85-89,18981,2033.0
+Males,85-89,7228,1941.7
+Females,85-89,11753,2093.5
+Persons,90-94,17629,4205.1
+Males,90-94,5347,3712.8
+Females,90-94,12282,4462.7
+Persons,95+,9393,7306.4
+Males,95+,1843,5775.8
+Females,95+,7550,7811.8
