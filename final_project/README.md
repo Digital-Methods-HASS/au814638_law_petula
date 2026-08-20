@@ -1,5 +1,5 @@
 # Dementia mortality rates in England and Wales
-My final project for Aarhus University's Digital Archives and Methods course explores dementia and Alzheimer's disease mortality rates in England and Wales.
+My final project for Aarhus University's Digital Archives and Methods course explores dementia and Alzheimer's mortality rates in England and Wales.
 
 
 ## Overview
