@@ -6,7 +6,7 @@ This Github repository contains two projects from Aarhus University's Digital Ar
 
 Two projects were completed as part of this course:
 1. **Monarchs** - an analysis of reign durations of the last 50 British monarchs
-2. **Dementia and Alzheimer's Morality** - a final project of dementia and Alzheimer's disease mortality statistics in England and Wales using ONS data
+2. **Dementia and Alzheimer's Morality** - a final project exploring dementia and Alzheimer's disease mortality statistics in England and Wales using ONS data
 
 Both projects aim to produce a reproducible workflow in R, using the 'tidyverse' package for data cleaning and 'ggplot2' for visualisation
 
