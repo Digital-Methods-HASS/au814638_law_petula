@@ -3,7 +3,7 @@ This is the monarchs portfolio assignment for Aarhus University's Digital Archiv
 
 
 ## Overview
-This contains a tidy datset of the last 50 British monarchs, alongisde the associated R script.
+This contains a tidy datset of the last 50 British monarchs and the associated R script.
 
 
 ## Features
