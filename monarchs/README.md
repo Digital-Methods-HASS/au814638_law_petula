@@ -1,14 +1,14 @@
 # Monarchs assignment
-This is the monarchs portfolio assignment for Aarhus University's Digital Archives and Methods course.
+This is the monarchs portfolio assignment for Aarhus University's Digital Archives and Methods course, exploring the reign durations of the last 50 monarchs of the British monarchy.
 
 ## Overview
-Contains a 
-It contains a tidy monarchs.csv file of the last 50 monarchs from the English monarchy YOUand the associated R script 
+This contains a tidy CSV file of the last 50 British monarchs alongside its associated R script.
+
 
 ## Features
-Feature 1 - monarchs.csv file
-Feature 2 - monarhcs.HTML 
-Feature 3 - monarchs.Rmd file
+- data/Monarchs.csv - clean CSV file containing monarch names, reign start/end years and dates, and birth/death dates
+- monarchs.Rmd - R Markdown file with data cleaning, reign duration calculations, and visaulisation
+- monarchs.html - knitted HTML file 
 
 ## Getting started
 ### Prerequisities
