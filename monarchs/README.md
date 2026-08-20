@@ -1,5 +1,5 @@
 # Monarchs Assignment
-This is the monarchs portfolio assignment for Aarhus University's Digital Archives and Methods course, exploring the reign durations of the last 50 monarchs of the British monarchy.
+This is the monarchs portfolio assignment for Aarhus University's Digital Archives and Methods course which explores the reign durations of the last 50 British monarchs.
 
 
 ## Overview
