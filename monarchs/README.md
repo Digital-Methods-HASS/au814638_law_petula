@@ -57,6 +57,7 @@ install.packages("tidyverse")
 **Institution:** Aarhus University
 
 **Course:** Digital Archives and Methods
+
 **Contact:** petulalaw@gmail.com
 
 ## License
