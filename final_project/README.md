@@ -72,7 +72,7 @@ The ONS data used in this project is made available under the [Open Government L
 
 **Course:** Digital Archives and Methods
 
-**Contact:** petulalaw@gmail.com
+**Contact:** au8146368@uni.au.dk
 
 ## License
 
