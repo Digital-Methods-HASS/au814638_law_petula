@@ -14,8 +14,8 @@ This contains a tidy CSV file of the last 50 British monarchs with the associate
 
 ## Repository Structure
 ``` r
-monarchs/
-├── data/
+monarchs
+├── data
 │ ├── Monarchs.csv
 │ ├── Monarchs.Rmd
 │ └── Monarchs.html
