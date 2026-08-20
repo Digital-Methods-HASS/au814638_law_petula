@@ -3,7 +3,7 @@ This is the monarchs portfolio assignment for Aarhus University's Digital Archiv
 
 
 ## Overview
-This contains a tidy CSV file of the last 50 British monarchs with the associated R script.
+This contains a tidy datset of the last 50 British monarchs, alongisde the associated R script.
 
 
 ## Features
@@ -64,4 +64,4 @@ install.packages("tidyverse")
 
 ## License
 
-This project is submitted for academic assessment purposes
+This project is submitted for academic assessment purposes.
