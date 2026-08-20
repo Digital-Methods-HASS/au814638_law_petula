@@ -47,13 +47,15 @@ install.packages("tidyverse")
 
 1. Make sure Monarchs.csv is located in a data/ subfolder relative to the .rmd file
 2. Open the monarchs.rmd in RSudio
-3. Knit the document to HTML:
+3. Knit the document to HTML
 
 
 ## Author
 
 **Petula Law**
+
 **Institution:** Aarhus University
+
 **Course:** Digital Archives and Methods
 **Contact:** petulalaw@gmail.com
 
