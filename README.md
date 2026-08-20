@@ -15,7 +15,7 @@ Both projects aim to produce a reproducible workflow in R, using the 'tidyverse'
 ``` r
 au814638_law_petula
 ├── monarchs
-├── data/
+├── data
 │ ├── Monarchs.csv
 │ ├── Monarchs.Rmd
 │ └── Monarchs.html
