@@ -11,15 +11,6 @@ Two projects were completed as part of this course:
 Both projects aim to produce a reproducible workflow in R, using the 'tidyverse' package for data cleaning and 'ggplot2' for visualisation
 
 
-## Features
-- **`dementia_deaths.csv`** — registered deaths due to dementia and Alzheimer's disease, England and Wales, 2001–2019
-- **`dementia_deaths_by_sex_2019.csv`** — 2019 death counts broken down by sex
-- **`dementia_deaths_by_age_sex_2019.csv`** — 2019 death counts by age group and sex
-- **`dementia_deaths_by_region_cause_2019.csv`** — 2019 age-standardised mortality rate by region, with confidence intervals
-- **`Final_project.Rmd`** — full analysis script producing all plots below
-
-
-
 ## Repository Structure
 ``` r
 au814638_law_petula
