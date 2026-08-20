@@ -26,7 +26,7 @@ monarchs
 ## Getting started
 
 ### Prerequisites
-- The user needs to install R(>=4.2) and RStudio
+- Install R(>=4.2) and RStudio
 - Required R package: "tidyverse"
 
 
