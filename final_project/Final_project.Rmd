@@ -1,0 +1,253 @@
+---
+title: "Final_project"
+author: "Petula Law"
+output: html_document
+date: "2026-08-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+### Number of deaths attributed to dementia registered in England and Wales, 2001-2019
+```{r, eval = TRUE}
+# Load the required package (ggplot2 is included in tidyverse)
+library(tidyverse)
+
+# Load the data
+dementia_deaths <- read_csv("dementia_deaths.csv")
+
+# Plot binding and set up the aesthetic mapping
+dementia_deaths |>
+    ggplot(aes(x = Year, y = Number_of_deaths))
+glimpse(dementia_deaths)
+
+# Add the plots to the graph
+dementia_deaths |>
+    ggplot(aes(x = Year, y = Number_of_deaths)) +
+    geom_line()
+
+# Add points to the top of the line so each year's value is visible 
+dementia_deaths |>
+    ggplot(aes(x = Year, y = Number_of_deaths)) +
+    geom_line(colour = "navyblue", linewidth = 1) +
+    geom_point(colour = "steelblue", size = 2)
+
+# Adding a title and labels
+dementia_deaths |>
+    ggplot(aes(x = Year, y = Number_of_deaths)) +
+    geom_line(colour = "navyblue", linewidth = 1) +
+    geom_point(colour = "navyblue", size = 2) +
+    labs(title = "Number of registered and age-standardised mortality rates, deaths due to dementia and Alzheimer's Disease, 2001 – 2019, England and Wales",
+         x = "Year",
+         y = "Number of deaths")
+
+# Appling a cleaner white background 
+final_plot <- dementia_deaths |>
+    ggplot(aes(x = Year, y = Number_of_deaths)) +
+    geom_line(colour = "navyblue", linewidth = 1) +
+    geom_point(colour = "navyblue", size = 2) +
+    labs(title = "Number of deaths attributed to dementia registered in England and Wales, 2001-2019",
+         x = "Year",
+         y = "Number of deaths") +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size = 9),
+          axis.title.x = element_text(size = 9),
+          axis.title.y = element_text(size = 9))
+
+final_plot
+
+# Saving the plot
+ggsave("fig_output/deaths_england_wales_trend.png", final_plot, width = 10, height = 6, dpi = 300)
+```
+
+
+### Deaths due to dementia and Alzheimer's by sex in England and Wales (2019)
+```{r}
+library(tidyverse)
+
+# Load the data
+deaths_by_sex <- read_csv("dementia_deaths_by_sex_2019.csv")
+
+deaths_by_sex
+
+deaths_by_sex <- deaths_by_sex |>
+    rename(sex = Sex, deaths = Number_of_deaths) |>
+    filter(!is.na(sex)) |>                                  # drop empty trailing rows
+    mutate(deaths = as.numeric(str_remove_all(deaths, ","))) |>  # strip commas, convert to number
+    filter(sex != "Persons")   # optional: drop Persons so bars show Male/Female only, not a double-count
+
+deaths_by_sex
+
+# Plot binding and set up the aesthetic mapping
+deaths_by_sex |>
+    ggplot(aes(x = sex, y = deaths))
+
+# Add geom_bar
+deaths_by_sex |>
+    ggplot(aes(x = sex, y = deaths)) +
+    geom_bar(stat = "identity")
+
+# Add colour and labels
+deaths_by_sex |>
+    ggplot(aes(x = sex, y = deaths, fill = sex)) +
+    geom_bar(stat = "identity") +
+    labs(title = "Deaths due to dementia and Alzheimer's disease by sex, England and Wales, 2019",
+         x = "Sex",
+         y = "Number of deaths")
+
+# Apply theme_bw()
+final_plot <- deaths_by_sex |>
+    ggplot(aes(x = sex, y = deaths, fill = sex)) +
+    geom_bar(stat = "identity") +
+    labs(title = "Deaths due to dementia and Alzheimer's by sex in England and Wales (2019)",
+         x = "Sex",
+         y = "Number of deaths") +
+    scale_fill_manual(name = "Sex", values = c("Males" = "navyblue", "Females" = "hotpink")) +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size = 10),
+          axis.title.x = element_text(size = 10),
+          axis.title.y = element_text(size = 10))
+
+final_plot
+
+dir.create("fig_output", showWarnings = FALSE)
+ggsave("fig_output/deaths_by_sex_2019.png", final_plot, width = 10, height = 6, dpi = 300)
+```
+
+
+### Dementia deaths by age group and sex, in England and Wales (2019)
+```{r}
+library(tidyverse)
+
+# Load the data
+dementia_age_sex <- read_csv("dementia_deaths_by_age_sex_2019.csv")
+
+# Check it loads correctly
+dementia_age_sex
+
+# Fix the age_group order so it plots chronologically, not alphabetically
+dementia_age_sex <- dementia_age_sex |>
+    mutate(age_group = factor(age_group,
+        levels = c("Under 65","65-69","70-74","75-79","80-84","85-89","90-94","95+")))
+
+# Build the bar chart: age group on x, deaths on y, bars split and coloured by sex
+counts_plot <- dementia_age_sex |>
+    filter(sex != "Persons") |>
+    ggplot(aes(x = age_group, y = deaths, fill = sex)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    labs(title = "Dementia deaths by age group and sex, in England and Wales (2019)",
+         x = "Age group",
+         y = "Number of deaths",
+         fill = "Sex") +
+    scale_fill_manual(values = c("Males" = "navyblue", "Females" = "hotpink")) +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size = 14),
+          axis.title.x = element_text(size = 11),
+          axis.text.y = element_text(size = 9))
+
+# Display the plot
+counts_plot
+
+dir.create("fig_output", showWarnings = FALSE)
+ggsave("fig_output/dementia_deaths_by_age_sex_counts.png", counts_plot, width = 10, height = 6, dpi = 300)
+```
+
+
+### Dementia and Alzheimer's mortality rate by region, 2019
+```{r}
+library(tidyverse)
+
+# Load the data
+deaths_region <- read_csv("dementia_deaths_by_region_cause_2019.csv")
+
+# Check it loaded correctly
+deaths_region
+
+# Filter to just dementia and Alzheimer's, since All causes has a very different scale
+dementia_region <- deaths_region |>
+    filter(cause == "Dementia and Alzheimer's")
+
+dementia_region |>
+    ggplot(aes(x = region, y = rate_per_100000))
+
+dementia_region |>
+    ggplot(aes(x = region, y = rate_per_100000)) +
+    geom_bar(stat = "identity", fill = "navyblue")
+
+dementia_region |>
+    ggplot(aes(x = region, y = rate_per_100000)) +
+    geom_bar(stat = "identity", fill = "navyblue") +
+    geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width = 0.2)
+
+dementia_region |>
+    ggplot(aes(x = region, y = rate_per_100000)) +
+    geom_bar(stat = "identity", fill = "navyblue") +
+    geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width = 0.2) +
+    labs(title = "Dementia and Alzheimer's mortality rate by region, 2019",
+         subtitle = "Age-standardised rate per 100,000 population, with 95% confidence intervals",
+         x = "Region",
+         y = "Rate per 100,000 population")
+
+final_plot <- dementia_region |>
+    ggplot(aes(x = region, y = rate_per_100000)) +
+    geom_bar(stat = "identity", fill = "navyblue") +
+    geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width = 0.2) +
+    labs(title = "Dementia mortality rates by region, 2019",
+         x = "Region",
+         y = "Rate per 100,000 population") +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size = 13),
+          axis.text.x = element_text(angle = 45, hjust = 1))
+
+final_plot
+
+dir.create("fig_output", showWarnings = FALSE)
+ggsave("fig_output/dementia_rate_by_region.png", final_plot, width = 10, height = 6, dpi = 300)
+```
+
+### Primary care dementia data 
+```{r}
+library(tidyverse)
+
+# Load the data
+dementia_diagnosis <- read_csv("dementia_diagnosis.csv")
+
+# Check it loaded correctly
+dementia_diagnosis
+
+# Clean the data: convert Date to an actual date, and Number_of_cases to numeric
+dementia_diagnosis <- dementia_diagnosis |>
+    mutate(
+        Date = my(Date),                                            # parses "Mar_2026" style month-year strings
+        Number_of_cases = as.numeric(str_remove_all(Number_of_cases, ","))  # strip commas, convert to number
+    ) |>
+    arrange(Date)                                                    # put dates in chronological order
+
+# Plot binding and set up the aesthetic mapping
+dementia_diagnosis |>
+    ggplot(aes(x = Date, y = Number_of_cases))
+
+# Add the line to the graph
+dementia_diagnosis |>
+    ggplot(aes(x = Date, y = Number_of_cases)) +
+    geom_line(colour = "navyblue", linewidth = 1)
+
+# Adding a title and labels
+final_plot <- dementia_diagnosis |>
+    ggplot(aes(x = Date, y = Number_of_cases)) +
+    geom_line(colour = "navyblue", linewidth = 1) +
+    labs(title = "Number of recorded dementia diagnoses over time",
+         x = "Date",
+         y = "Number of cases") +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size = 13))
+
+final_plot
+
+# Saving the plot
+dir.create("fig_output", showWarnings = FALSE)
+ggsave("fig_output/dementia_diagnosis_trend.png", final_plot, width = 10, height = 6, dpi = 300)
+```
