@@ -66,7 +66,8 @@ Data was sourced from the Office for National Statistics (ONS) and NHS England D
 
 ## Data License
 
-The ONS data used in this project is made available under the [Open Government Licence v3.0 (OGL)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), which permits free use, copying, and redistribution provided the source is acknowledged. Source: Office for National Statistics, licensed under the Open Government Licence v3.0. The NHS England Digital data is also made available under the [Open Government Licence v3.0 (OGL)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Source: NHS England Digital, Primary Care Dementia Data, licensed under the Open Government Licence v3.0.
+The ONS data used in this project is made available under the [Open Government Licence v3.0 (OGL)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), which permits free use, copying, and redistribution provided the source is acknowledged. Source: Office for National Statistics, licensed under the Open Government Licence v3.0. 
+The NHS England Digital data is also made available under the [Open Government Licence v3.0 (OGL)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Source: NHS England Digital, Primary Care Dementia Data, licensed under the Open Government Licence v3.0.
 
 ## Author
 
