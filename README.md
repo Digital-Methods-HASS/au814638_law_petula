@@ -94,6 +94,8 @@ The R code, analysis, and figures in this repository are the original work of th
 
 **Course:** Digital Archives and Methods
 
+**Contact**: au8146368@uni.au.dk
+
 ## License
 
 This project is submitted for academic assessment purposes.
