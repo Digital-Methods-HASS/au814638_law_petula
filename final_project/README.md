@@ -61,7 +61,7 @@ install.packages("tidyverse")
 
 
 ## Data Source
-Data was sourced from the Office for National Statistics (ONS) and NHS England Digital, covering registered deaths and age-standardised mortality rates, and prevalence rates for dementia and Alzeimer's disease in the UK.
+Data was sourced from the Office for National Statistics (ONS) and NHS England Digital, covering registered deaths and age-standardised mortality rates, and prevalence rates for dementia and Alzheimer's disease in the UK.
 
 
 ## Data License
