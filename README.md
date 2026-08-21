@@ -72,7 +72,7 @@ install.packages("tidyverse")
 ```
 
 
-### Usage
+### How to use
 Each project is inside its own folder and can be ran independently.
 
 ### Data Sources
