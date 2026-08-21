@@ -53,7 +53,7 @@ install.packages("tidyverse")
 ```
 
 
-### Usage
+### How to use
 
 1. Open 'Final_project.Rmd' in RStudio
 2. Ensure the four '.csv' files are located in a subfolder relative to the '.Rmd' file.
